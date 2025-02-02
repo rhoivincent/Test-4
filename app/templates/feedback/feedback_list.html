@@ -1,0 +1,17 @@
+{% extends 'app/base.html' %}
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4">User Feedback</h2>
+    <div class="list-group">
+        {% for feedback in feedbacks %}
+            <a href="{% url 'feedback_detail' feedback.pk %}" class="list-group-item list-group-item-action">
+                <h5 class="mb-1">Feedback on {{ feedback.resource.name }}</h5>
+                <p class="mb-1"><strong>Rating:</strong> ⭐ {{ feedback.rating }}/5</p>
+                <p class="text-muted">By {{ feedback.user }} on {{ feedback.created_at|date:"F d, Y" }}</p>
+            </a>
+        {% empty %}
+            <p class="text-muted">No feedback available yet.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,14 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container mt-5">
+    <h2>{{ content.title }}</h2>
+    <p><strong>Type:</strong> {{ content.type }}</p>
+    <p>{{ content.description }}</p>
+    {% if request.user.is_staff %}
+    <a href="{% url 'content_update' content.pk %}" class="btn btn-warning">Edit</a>
+    <a href="{% url 'content_delete' content.pk %}" class="btn btn-danger">Delete</a>
+    {% endif %}
+    <a href="{% url 'content_list' %}" class="btn btn-secondary">Back to List</a>
+</div>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card shadow p-4" style="max-width: 400px; width: 100%;">
+        <h2 class="text-center mb-4">Login</h2>
+
+        <form method="post">
+            {% csrf_token %}
+
+            <!-- Username Input -->
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    <input type="text" id="username" name="username" class="form-control" placeholder="Enter your username" required>
+                </div>
+            </div>
+
+            <!-- Password Input -->
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                    <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password" required>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary w-100">Log in</button>
+        </form>
+
+        <!-- Additional Links -->
+        <div class="text-center mt-3">
+            <a href="{% url 'password_reset' %}" class="text-decoration-none">Forgot Password?</a>
+        </div>
+        <div class="text-center mt-2">
+            <span>Don't have an account?</span>
+            <a href="{% url 'signup' %}" class="text-decoration-none">Sign Up</a>
+        </div>
+    </div>
+</div>
+{% endblock content %}

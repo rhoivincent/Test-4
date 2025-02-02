@@ -1,0 +1,41 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+            <h4>Update Content</h4>
+        </div>
+        <div class="card-body">
+            <form method="post" action="{% url 'content_update' content.pk %}">
+                {% csrf_token %}
+
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" id="title" name="title" class="form-control" value="{{ form.title.value|default_if_none:'' }}" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea id="description" name="description" class="form-control" rows="4" required>{{ form.description.value|default_if_none:'' }}</textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label for="type" class="form-label">Type</label>
+                    <select id="type" name="type" class="form-select" required>
+                        <option value="">Select Type</option>
+                        <option value="Article" {% if form.type.value == "Article" %}selected{% endif %}>Article</option>
+                        <option value="Document" {% if form.type.value == "Document" %}selected{% endif %}>Document</option>
+                    </select>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <a href="{% url 'content_list' %}" class="btn btn-secondary">Cancel</a>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

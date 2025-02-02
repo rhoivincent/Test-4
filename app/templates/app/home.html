@@ -1,0 +1,60 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="hero-section text-center py-5 bg-primary text-white">
+    <div class="container">
+        <h1>Welcome to the Accessible Content Platform</h1>
+        <p class="lead">Empowering the Deaf and Hard of Hearing Community</p>
+        <a href="{% url 'about' %}" class="btn btn-light btn-lg">Learn More</a>
+    </div>
+</div>
+
+<!-- Main Content Section -->
+<div class="container py-5">
+    <div class="row">
+        <!-- Section 1: Introduction -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="Introduction Image">
+                <div class="card-body">
+                    <h5 class="card-title">Our Mission</h5>
+                    <p class="card-text">We are dedicated to providing accessible content for the Deaf and Hard of Hearing community through video subtitles, captions, and more.</p>
+                    <a href="{% url 'about' %}" class="btn btn-primary">Read More</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2: Resources -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="Resources Image">
+                <div class="card-body">
+                    <h5 class="card-title">Resources</h5>
+                    <p class="card-text">Explore a variety of resources including articles, videos, and documents tailored for the Deaf community.</p>
+                    <a href="{% url 'resource_list' %}" class="btn btn-primary">Explore Resources</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3: Events -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="Events Image">
+                <div class="card-body">
+                    <h5 class="card-title">Upcoming Events</h5>
+                    <p class="card-text">Join our upcoming events designed to promote inclusion, awareness, and better communication.</p>
+                    <a href="{% url 'event_list' %}" class="btn btn-primary">See Events</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer Section -->
+<footer class="bg-dark text-white text-center py-4">
+    <p>&copy; 2025 Accessible Content Platform. All Rights Reserved.</p>
+    <a href="{% url 'contact' %}" class="text-white">Contact Us</a>
+</footer>
+{% endblock content %}

@@ -1,0 +1,48 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container mt-5">
+    <h2>Content List</h2>
+
+
+    {% if request.user.is_staff %}
+        <a href="{% url 'content_create' %}" class="btn btn-primary mb-3">Add New Content</a>
+    {% endif %}
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Type</th>
+                <th>Created At</th>
+                <th>View</th>
+                {% if request.user.is_staff %}
+                <th>Edit</th>
+                <th>Delete</th>
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for content in contents %}
+            <tr>
+                <td>{{ content.title }}</td>
+                <td>{{ content.type }}</td>
+                <td>{{ content.created_at }}</td>
+                <td>
+                    <a href="{% url 'content_detail' content.pk %}" class="btn btn-info btn-sm">View</a>
+                </td>
+
+                {% if request.user.is_staff %}
+                <td>
+                     <a href="{% url 'content_update' content.pk %}" class="btn btn-warning btn-sm">Edit</a>
+                </td>
+                <td>
+                      <a href="{% url 'content_delete' content.pk %}" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock content %}

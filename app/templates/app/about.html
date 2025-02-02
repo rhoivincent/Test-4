@@ -1,0 +1,83 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="hero-section text-center py-5 bg-info text-white">
+    <div class="container">
+        <h1>About Us</h1>
+        <p class="lead">Learn more about our mission and commitment to accessibility for the Deaf and Hard of Hearing community.</p>
+    </div>
+</div>
+
+<!-- Main Content Section -->
+<div class="container py-5">
+    <div class="row">
+        <!-- Mission Section -->
+        <div class="col-md-12 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Our Mission</h3>
+                    <p class="card-text">Our goal is to provide accessible content and resources for the Deaf and Hard of Hearing community. We strive to make video, articles, and events more inclusive, through subtitles, captions, and visual aids.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Team Section -->
+        <div class="col-md-12 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Meet Our Team</h3>
+                    <p class="card-text">Our team consists of dedicated professionals who are passionate about making content accessible and empowering the Deaf community.</p>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="Team Member 1">
+                                <div class="card-body">
+                                    <h5 class="card-title">John Doe</h5>
+                                    <p class="card-text">Founder & CEO</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="Team Member 2">
+                                <div class="card-body">
+                                    <h5 class="card-title">Jane Smith</h5>
+                                    <p class="card-text">Community Manager</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="Team Member 3">
+                                <div class="card-body">
+                                    <h5 class="card-title">Mary Johnson</h5>
+                                    <p class="card-text">Accessibility Specialist</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Info Section -->
+        <div class="col-md-12 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Contact Us</h3>
+                    <p class="card-text">If you have any questions or feedback, feel free to reach out to us! We value your input and strive to continuously improve our platform.</p>
+                    <a href="{% url 'contact' %}" class="btn btn-primary">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer Section -->
+<footer class="bg-dark text-white text-center py-4">
+    <p>&copy; 2025 Accessible Content Platform. All Rights Reserved.</p>
+</footer>
+
+{% endblock content %}

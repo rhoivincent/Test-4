@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessible Content for the Deaf</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+</head>
+<body>
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <nav id="sidebar" class="bg-dark text-white vh-100 position-fixed">
+            <div class="sidebar-header text-center py-3">
+                <button id="sidebarCollapse" class="btn btn-light"><i class="fas fa-bars"></i></button>
+            </div>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{% url 'home' %}">
+                        <i class="fas fa-home"></i> <span>Home</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{% url 'about' %}">
+                        <i class="fas fa-info-circle"></i> <span>About</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{% url 'contact' %}">
+                        <i class="fas fa-envelope"></i> <span>Contact</span>
+                    </a>
+                </li>
+
+                {% if user.is_authenticated %}
+                <!-- Resources Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link text-white dropdown-toggle" href="#" id="resourcesDropdown" role="button" data-bs-toggle="dropdown">
+                        <i class="fas fa-book"></i> <span>Resources</span>
+                    </a>
+                    <ul class="dropdown-menu bg-dark">
+                        <li><a class="dropdown-item text-white" href="{% url 'content_list' %}">Contents</a></li>
+                        <li><a class="dropdown-item text-white" href="{% url 'resource_list' %}">Videos</a></li>
+                    </ul>
+                </li>
+
+                <!-- Events and Feedback Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link text-white dropdown-toggle" href="#" id="eventsDropdown" role="button" data-bs-toggle="dropdown">
+                        <i class="fas fa-calendar-alt"></i> <span>Events & Feedback</span>
+                    </a>
+                    <ul class="dropdown-menu bg-dark">
+                        <li><a class="dropdown-item text-white" href="{% url 'event_list' %}">Events</a></li>
+                        <li><a class="dropdown-item text-white" href="{% url 'feedback_list' %}">Feedback</a></li>
+                    </ul>
+                </li>
+
+
+
+
+                <li class="nav-item mt-3">
+                    <a class="nav-link text-white" href="#">
+                        <i class="fas fa-user-circle"></i> <span>My Profile</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <form method="post" action="{% url 'logout' %}" class="d-inline">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger w-100 mt-2">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </button>
+                    </form>
+                </li>
+                {% else %}
+                <li class="nav-item mt-3">
+                    <a class="nav-link text-white" href="{% url 'login' %}">
+                        <i class="fas fa-sign-in-alt"></i> <span>Login</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{% url 'signup' %}">
+                        <i class="fas fa-user-plus"></i> <span>Sign Up</span>
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+
+        <!-- Main content area -->
+        <div class="container-fluid content" id="main-content" style="margin-left: 250px;">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and Sidebar Toggle Script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'js/base.js' %}"></script>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+{% extends 'app/base.html' %}
+{% block content %}
+<div class="container mt-4">
+    <h2>{{ event.title }}</h2>
+    <p class="text-muted">{{ event.description }}</p>
+    <p><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> {{ event.location }}</p>
+    <p><i class="fas fa-calendar-alt"></i> <strong>Date:</strong> {{ event.date }}</p>
+    <p><i class="fas fa-user"></i> <strong>Organizer:</strong> {{ event.organizer }}</p>
+
+    {% if user == event.organizer or user.is_staff %}
+        <a href="{% url 'event_update' event.pk %}" class="btn btn-warning"><i class="fas fa-edit"></i> Edit</a>
+        <a href="{% url 'event_delete' event.pk %}" class="btn btn-danger"><i class="fas fa-trash"></i> Delete</a>
+    {% endif %}
+    <a href="{% url 'event_list' %}" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Back</a>
+</div>
+{% endblock content %}

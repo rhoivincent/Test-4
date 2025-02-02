@@ -1,0 +1,27 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4">Resources</h2>
+    {% if user.is_staff %}
+        <a href="{% url 'resource_create' %}" class="btn btn-primary mb-3"><i class="fas fa-plus"></i> Add Resource</a>
+    {% endif %}
+    <div class="list-group">
+        {% for resource in resources %}
+            <a href="{% url 'resource_detail' resource.pk %}" class="list-group-item list-group-item-action">
+                <h5 class="mb-1">{{ resource.name }}</h5>
+                <p class="mb-1">{{ resource.description|truncatewords:20 }}</p>
+
+                {% if resource.video %}
+                    <div class="embed-responsive embed-responsive-16by9 mb-3">
+                        <video class="embed-responsive-item" controls>
+                            <source src="{{ resource.video.url }}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                {% endif %}
+            </a>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}

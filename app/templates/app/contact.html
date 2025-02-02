@@ -1,0 +1,60 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="hero-section text-center py-5 bg-info text-white">
+    <div class="container">
+        <h1>Contact Us</h1>
+        <p class="lead">Feel free to get in touch with us. We are here to help!</p>
+    </div>
+</div>
+
+<!-- Main Content Section -->
+<div class="container py-5">
+    <div class="row">
+        <!-- Contact Info Section -->
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Contact Information</h3>
+                    <ul class="list-unstyled">
+                        <li><strong>Email:</strong> contact@accessiblecontent.com</li>
+                        <li><strong>Phone:</strong> +123 456 7890</li>
+                        <li><strong>Address:</strong> 123 Accessibility Street, City, Country</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Social Media Section -->
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Follow Us</h3>
+                    <div class="d-flex">
+                        <a href="https://facebook.com" class="btn btn-primary mr-3" target="_blank">
+                            <i class="fab fa-facebook-f"></i> Facebook
+                        </a>
+                        <a href="https://twitter.com" class="btn btn-info mr-3" target="_blank">
+                            <i class="fab fa-twitter"></i> Twitter
+                        </a>
+                        <a href="https://instagram.com" class="btn btn-danger mr-3" target="_blank">
+                            <i class="fab fa-instagram"></i> Instagram
+                        </a>
+                        <a href="https://linkedin.com" class="btn btn-primary" target="_blank">
+                            <i class="fab fa-linkedin-in"></i> LinkedIn
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer Section -->
+<footer class="bg-dark text-white text-center py-4">
+    <p>&copy; 2025 Accessible Content Platform. All Rights Reserved.</p>
+</footer>
+
+{% endblock content %}

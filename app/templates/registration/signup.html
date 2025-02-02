@@ -1,0 +1,90 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block content %}
+<br><br><br><br><br><br><br><br><br><br>
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card shadow p-4" style="max-width: 600px; width: 100%;">
+        <h2 class="text-center mb-4">Register</h2>
+
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <!-- Username Input -->
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    <input type="text" id="username" name="username" class="form-control" placeholder="Enter your username" required>
+                </div>
+            </div>
+
+            <!-- Email Input -->
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required>
+                </div>
+            </div>
+
+            <!-- Password Input -->
+            <div class="mb-3">
+                <label for="password1" class="form-label">Password</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                    <input type="password" id="password1" name="password1" class="form-control" placeholder="Enter your password" required>
+                </div>
+            </div>
+
+            <!-- Confirm Password Input -->
+            <div class="mb-3">
+                <label for="password2" class="form-label">Confirm Password</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                    <input type="password" id="password2" name="password2" class="form-control" placeholder="Re-enter your password" required>
+                </div>
+            </div>
+
+            <!-- Phone Number Input -->
+            <div class="mb-3">
+                <label for="phone_number" class="form-label">Phone Number</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                    <input type="text" id="phone_number" name="phone_number" class="form-control" placeholder="Enter your phone number" required>
+                </div>
+            </div>
+
+            <!-- Age Input -->
+            <div class="mb-3">
+                <label for="age" class="form-label">Age</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-birthday-cake"></i></span>
+                    <input type="number" id="age" name="age" class="form-control" placeholder="Enter your age" required>
+                </div>
+            </div>
+
+            <!-- Address Input -->
+            <div class="mb-3">
+                <label for="address" class="form-label">Address</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-home"></i></span>
+                    <textarea id="address" name="address" class="form-control" placeholder="Enter your address" required></textarea>
+                </div>
+            </div>
+
+            <!-- Profile Image Input -->
+            <div class="mb-3">
+                <label for="image" class="form-label">Profile Image</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-image"></i></span>
+                    <input type="file" id="image" name="image" class="form-control">
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary w-100">Register</button>
+        </form>
+    </div>
+</div>
+{% endblock content %}
