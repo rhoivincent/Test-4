@@ -7,7 +7,7 @@
             <a href="{% url 'feedback_detail' feedback.pk %}" class="list-group-item list-group-item-action">
                 <h5 class="mb-1">Feedback on {{ feedback.resource.name }}</h5>
                 <p class="mb-1"><strong>Rating:</strong> ⭐ {{ feedback.rating }}/5</p>
-                <p class="text-muted">By {{ feedback.user }} on {{ feedback.created_at|date:"F d, Y" }}</p>
+                <p class="text-muted">By {{ feedback.user.user }} on {{ feedback.created_at|date:"F d, Y" }}</p>
             </a>
         {% empty %}
             <p class="text-muted">No feedback available yet.</p>

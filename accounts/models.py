@@ -13,4 +13,4 @@ class CustomUser(AbstractUser):
     address = models.TextField(blank=True, null=True)
 
     def __str__(self):
-        return self.username
+        return self.user.username
